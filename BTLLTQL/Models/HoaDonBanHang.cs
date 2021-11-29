@@ -12,9 +12,11 @@ namespace BTLLTQL.Models
         public string MaHoaDon { get; set; }
         public string NgayBan { get; set; }
         public string MaHang { get; set; }
+        public HangBan HangBan { get; set; }
         public string SoLuong { get; set; }
         public string DonGia { get; set; }
         public string ThanhTien { get; set; }
+       
 
     }
 }

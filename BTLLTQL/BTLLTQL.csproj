@@ -46,10 +46,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -128,13 +128,22 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DangNhapsController.cs" />
+    <Compile Include="Controllers\HangBansController.cs" />
+    <Compile Include="Controllers\HoaDonBanHangsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NCCsController.cs" />
+    <Compile Include="Controllers\NVBanHangsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202111240842053_create_5_table.cs" />
     <Compile Include="Migrations\202111240842053_create_5_table.Designer.cs">
       <DependentUpon>202111240842053_create_5_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111290804039_create_table_thiet khoa ngoai.cs" />
+    <Compile Include="Migrations\202111290804039_create_table_thiet khoa ngoai.Designer.cs">
+      <DependentUpon>202111290804039_create_table_thiet khoa ngoai.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DangNhap.cs" />
@@ -181,6 +190,31 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\DangNhaps\Create.cshtml" />
+    <Content Include="Views\DangNhaps\Delete.cshtml" />
+    <Content Include="Views\DangNhaps\Details.cshtml" />
+    <Content Include="Views\DangNhaps\Edit.cshtml" />
+    <Content Include="Views\DangNhaps\Index.cshtml" />
+    <Content Include="Views\HangBans\Create.cshtml" />
+    <Content Include="Views\HangBans\Delete.cshtml" />
+    <Content Include="Views\HangBans\Details.cshtml" />
+    <Content Include="Views\HangBans\Edit.cshtml" />
+    <Content Include="Views\HangBans\Index.cshtml" />
+    <Content Include="Views\HoaDonBanHangs\Create.cshtml" />
+    <Content Include="Views\HoaDonBanHangs\Delete.cshtml" />
+    <Content Include="Views\HoaDonBanHangs\Details.cshtml" />
+    <Content Include="Views\HoaDonBanHangs\Edit.cshtml" />
+    <Content Include="Views\HoaDonBanHangs\Index.cshtml" />
+    <Content Include="Views\NCCs\Create.cshtml" />
+    <Content Include="Views\NCCs\Delete.cshtml" />
+    <Content Include="Views\NCCs\Details.cshtml" />
+    <Content Include="Views\NCCs\Edit.cshtml" />
+    <Content Include="Views\NCCs\Index.cshtml" />
+    <Content Include="Views\NVBanHangs\Create.cshtml" />
+    <Content Include="Views\NVBanHangs\Delete.cshtml" />
+    <Content Include="Views\NVBanHangs\Details.cshtml" />
+    <Content Include="Views\NVBanHangs\Edit.cshtml" />
+    <Content Include="Views\NVBanHangs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -201,6 +235,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202111240842053_create_5_table.resx">
       <DependentUpon>202111240842053_create_5_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111290804039_create_table_thiet khoa ngoai.resx">
+      <DependentUpon>202111290804039_create_table_thiet khoa ngoai.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -16,6 +16,7 @@ namespace BTLLTQL.Models
         public string DonGia { get; set; }
         public string ThanhTien { get; set; }
         public string HanSD { get; set; }
+        public ICollection<HoaDonBanHang> hoaDonBanHangs { get; set; }
 
 
     }
