@@ -15,10 +15,7 @@ namespace BTLLTQL.Models
         public virtual DbSet<HangBan> HangBans { get; set; }
         public virtual DbSet<HoaDonBanHang> HoaDonBanhangs { get; set; }
         public virtual DbSet<NCC> NCCs { get; set; }
-        public virtual DbSet<NVBanHang> NVBanHangs { get; set; }
-        
-    
-
+        public virtual DbSet<NVBanHang> NVBanHangs { get; set; }      
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

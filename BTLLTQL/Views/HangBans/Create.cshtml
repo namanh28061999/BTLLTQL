@@ -7,11 +7,20 @@
 
 <h2>Create</h2>
 
+@using (Html.BeginForm("Action_Name", "Controller_Name", FormMethod.Post, new
+{ enctype = "multipart/form-data" }))
+{
+    <div>
+        @Html.TextBox("file", "", new { type = "file" })<br />
+        <input type="submit" value="Upload" />
+    </div>
+}
 
-@using (Html.BeginForm()) 
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>HangBan</h4>
         <hr />
@@ -19,7 +28,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.MaHang, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.MaHang, new { htmlAttributes = new { @class = "form-control" } })
+                <input type="text" name="MaHang" value="@ViewBag.newproID" />
+                @*@Html.EditorFor(model => model.MaHang, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.ValidationMessageFor(model => model.MaHang, "", new { @class = "text-danger" })
             </div>
         </div>

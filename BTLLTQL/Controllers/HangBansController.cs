@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -13,6 +16,8 @@ namespace BTLLTQL.Controllers
     public class HangBansController : Controller
     {
         private HANGHOADBContext db = new HANGHOADBContext();
+        ExcelProcess ExcelPro = new ExcelProcess();
+        Autgenkey genkey = new Autgenkey();
 
         // GET: HangBans
         public ActionResult Index()
@@ -38,6 +43,17 @@ namespace BTLLTQL.Controllers
         // GET: HangBans/Create
         public ActionResult Create()
         {
+            if (db.HangBans.OrderByDescending(m => m.MaHang).Count() == 0)
+            {
+                var newID = "SP01";
+                ViewBag.newproID = newID;
+            }
+            else
+            {
+                var PdID = db.HangBans.OrderByDescending(m => m.MaHang).FirstOrDefault().MaHang;
+                var newID = genkey.generatekey(PdID, 2);
+                ViewBag.newproID = newID;
+            }            
             return View();
         }
 
@@ -122,6 +138,34 @@ namespace BTLLTQL.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        private DataTable CopyDataFromExcelFile(HttpPostedFileBase file)
+        {
+            string fileExtention = file.FileName.Substring(file.FileName.IndexOf("."));
+            string _FileName = "Ten_File_Muon_Luu" + fileExtention;
+            string _path = Path.Combine(Server.MapPath("~/Upload/Excels"), _FileName);
+            file.SaveAs(_path);
+            DataTable dt = ExcelPro.ReadDataFromExcelFile(_path, false);
+            return dt;
+        }
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["HANGHOADBContext"].ConnectionString);
+        private void OverwriteFastData(int? ArticleID)
+        {
+            //dt là databasecos chứa dữ liệu để import vào database
+            DataTable dt = new DataTable();
+
+            //mapping các column trong database vào các column trong table ở CSDL
+            SqlBulkCopy bulkcopy = new SqlBulkCopy(con);
+            bulkcopy.DestinationTableName = "HangBan";
+            bulkcopy.ColumnMappings.Add(0, "MaHang");
+            bulkcopy.ColumnMappings.Add(1, "ViTri");
+            bulkcopy.ColumnMappings.Add(2, "SoLuong");
+            bulkcopy.ColumnMappings.Add(2, "DonGia");
+            bulkcopy.ColumnMappings.Add(2, "ThanhTien");
+            bulkcopy.ColumnMappings.Add(2, "HanSD");
+            con.Open();
+            bulkcopy.WriteToServer(dt);
+            con.Close();
         }
     }
 }

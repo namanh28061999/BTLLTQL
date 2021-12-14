@@ -145,8 +145,18 @@
     <Compile Include="Migrations\202111290804039_create_table_thiet khoa ngoai.Designer.cs">
       <DependentUpon>202111290804039_create_table_thiet khoa ngoai.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112100213399_creae_table_role.cs" />
+    <Compile Include="Migrations\202112100213399_creae_table_role.Designer.cs">
+      <DependentUpon>202112100213399_creae_table_role.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112100306543_crate_tabe_DangNhap.cs" />
+    <Compile Include="Migrations\202112100306543_crate_tabe_DangNhap.Designer.cs">
+      <DependentUpon>202112100306543_crate_tabe_DangNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Autgenkey.cs" />
     <Compile Include="Models\DangNhap.cs" />
+    <Compile Include="Models\ExcelProcess.cs" />
     <Compile Include="Models\HangBan.cs" />
     <Compile Include="Models\HANGHOADBContext.cs" />
     <Compile Include="Models\HoaDonBanHang.cs" />
@@ -190,11 +200,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\DangNhaps\Create.cshtml" />
-    <Content Include="Views\DangNhaps\Delete.cshtml" />
-    <Content Include="Views\DangNhaps\Details.cshtml" />
-    <Content Include="Views\DangNhaps\Edit.cshtml" />
-    <Content Include="Views\DangNhaps\Index.cshtml" />
     <Content Include="Views\HangBans\Create.cshtml" />
     <Content Include="Views\HangBans\Delete.cshtml" />
     <Content Include="Views\HangBans\Details.cshtml" />
@@ -215,6 +220,11 @@
     <Content Include="Views\NVBanHangs\Details.cshtml" />
     <Content Include="Views\NVBanHangs\Edit.cshtml" />
     <Content Include="Views\NVBanHangs\Index.cshtml" />
+    <Content Include="Views\DangNhaps\Create.cshtml" />
+    <Content Include="Views\DangNhaps\Delete.cshtml" />
+    <Content Include="Views\DangNhaps\Details.cshtml" />
+    <Content Include="Views\DangNhaps\Edit.cshtml" />
+    <Content Include="Views\DangNhaps\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -238,6 +248,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111290804039_create_table_thiet khoa ngoai.resx">
       <DependentUpon>202111290804039_create_table_thiet khoa ngoai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112100213399_creae_table_role.resx">
+      <DependentUpon>202112100213399_creae_table_role.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112100306543_crate_tabe_DangNhap.resx">
+      <DependentUpon>202112100306543_crate_tabe_DangNhap.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
